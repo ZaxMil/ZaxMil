@@ -5,7 +5,7 @@
 -->
 
 <div align="center">
-  <img src="./assets/hero.svg" alt="ZaxMil | Developer, Builder, Creator — neon cyberpunk profile" width="100%" />
+  <a href="./motion/hero/renders/zaxmil-hero.mp4"><img src="./assets/hero-motion.gif" alt="ZaxMil | Animated neon developer profile header" width="100%" /></a>
 </div>
 
 <br />
@@ -63,6 +63,8 @@
 <br />
 
 <img src="./assets/footer.svg" alt="Keep building. Keep shipping." width="100%" />
+
+<!-- Animated hero: HyperFrames composition at motion/hero/index.html; original non-animated fallback assets/hero.svg. -->
 
 <!-- Maintenance:
 Run GITHUB_TOKEN="$(gh auth token)" python3 scripts/update_profile.py to refresh local data.

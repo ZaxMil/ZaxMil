@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200, initial-scale=1">
+  <title>ZaxMil — Neon Profile Motion (HyperFrames)</title>
+  <style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; width: 1200px; height: 407px; overflow: hidden; background: #070f21; }
+  #root { position: relative; width: 1200px; height: 407px; isolation: isolate; overflow: hidden; border-radius: 25px; }
+  #base { position: absolute; inset: 0; width: 1200px; height: 407px; z-index: 0; }
+  #aurora {
+    position:absolute; left: 760px; top: -110px; width: 420px; height: 430px; border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(47,218,255,.20) 0, rgba(125,74,250,.08) 47%, transparent 74%);
+    filter: blur(18px); mix-blend-mode: screen; transform-origin: center;
+  }
+  #halo {
+    position: absolute; left: 862px; top: 18px; width: 274px; height: 274px; border-radius: 50%;
+    border: 2px dashed rgba(74,251,250,.5); box-shadow: 0 0 16px rgba(27,224,250,.17);
+    transform-origin: 50% 50%;
+  }
+  #halo::before { content:""; position:absolute; left:50%; top:-7px; width:11px; height:11px; background:#afffff; border-radius:50%; box-shadow: 0 0 17px #49ffff; }
+  #halo::after { content:""; position:absolute; bottom:10%; left:8%; width:7px; height:7px; background:#b277ff; border-radius:50%; box-shadow: 0 0 13px #a262ff; }
+  #moon-glow {
+    position:absolute; left: 882px; top: 44px; width: 239px; height:239px; border-radius:50%;
+    border: 2px solid rgba(125,201,255,.25);
+    box-shadow: 0 0 24px rgba(30,213,255,.22), inset 0 0 24px rgba(116,92,245,.12);
+    transform-origin: center;
+  }
+  .star { position:absolute; border-radius:50%; width:4px; height:4px; background:#a1f8ff; box-shadow: 0 0 8px #54ecff; opacity:.2; }
+  .purple { background:#eeb7ff; box-shadow:0 0 11px #bc71ff; }
+  #laser-line { position:absolute; left:52px; top:247px; width:435px; height:2px; overflow:hidden; opacity:.85; }
+  #laser-line::before { content:""; position:absolute; left:0; top:0; width:100%; height:2px; background:linear-gradient(90deg,transparent,#33e4ff,transparent); }
+  #laser-pulse { position:absolute; left:51px; top:243px; width:56px; height:9px; opacity:0; background:linear-gradient(90deg,transparent,#25efff,transparent); filter:blur(3px); }
+  #scan {
+    position:absolute; left:0; top:0; height:405px; width:225px;
+    background:linear-gradient(90deg,transparent,rgba(77,165,255,.05) 32%,rgba(105,224,255,.13) 50%,rgba(123,84,247,.05) 70%,transparent);
+    transform:skewX(-15deg); mix-blend-mode:screen; pointer-events:none;
+  }
+  #pixel-a, #pixel-b, #pixel-c {
+    position:absolute; width:44px; height:2px; border-radius:6px; background:#42eafa; box-shadow:0 0 9px #2fdafa; opacity:0;
+  }
+  #pixel-a { left: 720px; top: 106px; }
+  #pixel-b { left: 789px; top: 267px; width:28px; background:#bc81ff; }
+  #pixel-c { left: 1144px; top: 354px; width:29px; }
+  #name-glow { position:absolute; left:49px; top:107px; width:435px; height:102px; border-radius:20px; opacity:0; background:radial-gradient(ellipse, rgba(22,197,245,.08),transparent 70%); filter:blur(9px);}
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="zaxmil-motion" data-start="0" data-width="1200" data-height="407">
+    <img id="base" class="clip" data-start="0" data-duration="4" data-track-index="0" src="assets/hero.svg" alt="ZaxMil original vector hero"/>
+    <div id="aurora" class="clip" data-start="0" data-duration="4" data-track-index="1"></div>
+    <div id="halo" class="clip" data-start="0" data-duration="4" data-track-index="2"></div>
+    <div id="moon-glow" class="clip" data-start="0" data-duration="4" data-track-index="3"></div>
+    <div id="laser-line" class="clip" data-start="0" data-duration="4" data-track-index="4"></div>
+    <div id="laser-pulse" class="clip" data-start="0" data-duration="4" data-track-index="5"></div>
+    <div id="scan" class="clip" data-start="0" data-duration="4" data-track-index="6"></div>
+    <div id="name-glow" class="clip" data-start="0" data-duration="4" data-track-index="7"></div>
+    <div id="pixel-a" class="clip" data-start="0" data-duration="4" data-track-index="8"></div>
+    <div id="pixel-b" class="clip" data-start="0" data-duration="4" data-track-index="9"></div>
+    <div id="pixel-c" class="clip" data-start="0" data-duration="4" data-track-index="10"></div>
+    <div id="star-0" class="star clip" style="left:676px;top:87px" data-start="0" data-duration="4" data-track-index="11"></div>
+    <div id="star-1" class="star clip purple" style="left:798px;top:147px" data-start="0" data-duration="4" data-track-index="12"></div>
+    <div id="star-2" class="star clip" style="left:740px;top:52px" data-start="0" data-duration="4" data-track-index="13"></div>
+    <div id="star-3" class="star clip purple" style="left:1117px;top:82px" data-start="0" data-duration="4" data-track-index="14"></div>
+    <div id="star-4" class="star clip" style="left:1176px;top:224px" data-start="0" data-duration="4" data-track-index="15"></div>
+    <div id="star-5" class="star clip" style="left:817px;top:300px" data-start="0" data-duration="4" data-track-index="16"></div>
+    <script src="./vendor/gsap.min.js"></script>
+    <script>
+      // Deterministic, finite, seekable 4-second motion — looped at GIF export time.
+      const tl = gsap.timeline({ paused: true, defaults: {ease: "sine.inOut"} });
+      tl.fromTo("#halo", {rotation:0, opacity:0.45}, {rotation:360, opacity:.45, duration:4, ease:"none"},0);
+      tl.fromTo("#moon-glow", {opacity:.16, scale:.98}, {opacity:.50, scale:1.045, duration:2, repeat:1, yoyo:true}, 0);
+      tl.fromTo("#aurora", {x:-30, y:8, opacity:.40, scale:.94}, {x:30, y:-8, opacity:.69, scale:1.08, duration:2, repeat:1, yoyo:true},0);
+      tl.fromTo("#scan", {x:-400}, {x:1520, duration:4, ease:"none"},0);
+      tl.fromTo("#scan", {opacity:0},{opacity:.40,duration:.55}, .55);
+      tl.to("#scan",{opacity:0,duration:.55},3.3);
+      tl.fromTo("#laser-pulse", {x:0}, {x:378, duration:4,ease:"none"},0);
+      tl.to("#laser-pulse",{opacity:.94,duration:.35},.35);
+      tl.to("#laser-pulse",{opacity:0,duration:.55},3.4);
+      tl.fromTo("#name-glow",{opacity:0},{opacity:.9,duration:2,repeat:1,yoyo:true},0);
+      for(let i=0;i<6;i++){ tl.fromTo("#star-"+i,{opacity:.16,scale:.6},{opacity:.96,scale:1.4,duration:1.7,repeat:1,yoyo:true},i*.10); }
+      tl.fromTo("#pixel-a",{x:0},{x:120,duration:2},0);
+      tl.to("#pixel-a",{opacity:.9,duration:.25},.4);
+      tl.to("#pixel-a",{opacity:0,duration:.4},1.5);
+      tl.fromTo("#pixel-b",{x:0},{x:78,duration:2},1.7);
+      tl.to("#pixel-b",{opacity:.84,duration:.25},2.1);
+      tl.to("#pixel-b",{opacity:0,duration:.4},3.2);
+      tl.fromTo("#pixel-c",{x:0},{x:-50,duration:2},.6);
+      tl.fromTo("#pixel-c",{opacity:0},{opacity:.65,duration:.4},.65);
+      tl.to("#pixel-c",{opacity:0,duration:.5},2.35);
+      tl.set({}, {}, 4);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["zaxmil-motion"] = tl;
+    </script>
+  </div>
+</body>
+</html>
