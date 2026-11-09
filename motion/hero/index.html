@@ -9,6 +9,24 @@
   html, body { margin: 0; padding: 0; width: 1200px; height: 407px; overflow: hidden; background: #070f21; }
   #root { position: relative; width: 1200px; height: 407px; isolation: isolate; overflow: hidden; border-radius: 25px; }
   #base { position: absolute; inset: 0; width: 1200px; height: 407px; z-index: 0; }
+  #avatar {
+    position: absolute;
+    width: 500px; height: 500px;
+    left: 746px; top: -12px;
+    object-fit: cover;
+    z-index: 1;
+    -webkit-mask-image: radial-gradient(ellipse 74% 78% at 52% 49%, #000 42%, rgba(0,0,0,.98) 59%, transparent 94%);
+    mask-image: radial-gradient(ellipse 74% 78% at 52% 49%, #000 42%, rgba(0,0,0,.98) 59%, transparent 94%);
+    filter: drop-shadow(0 0 12px rgba(54,231,252,.23));
+  }
+  #avatar-halo {
+    position: absolute; left: 821px; top: 9px;
+    width: 350px; height: 350px;
+    border-radius: 50%; opacity: .18;
+    border: 2px solid rgba(111,240,252,.64);
+    box-shadow: 0 0 24px rgba(87,212,252,.45);
+    z-index: 1;
+  }
   #aurora {
     position:absolute; left: 760px; top: -110px; width: 420px; height: 430px; border-radius: 50%;
     background: radial-gradient(ellipse, rgba(47,218,255,.20) 0, rgba(125,74,250,.08) 47%, transparent 74%);
@@ -49,6 +67,8 @@
 <body>
   <div id="root" data-composition-id="zaxmil-motion" data-start="0" data-width="1200" data-height="407">
     <img id="base" class="clip" data-start="0" data-duration="4" data-track-index="0" src="assets/hero.svg" alt="ZaxMil original vector hero"/>
+    <img id="avatar" class="clip" data-start="0" data-duration="4" data-track-index="17" src="assets/zax-avatar.webp" alt="ZaxMil custom neon masked developer portrait"/>
+    <div id="avatar-halo" class="clip" data-start="0" data-duration="4" data-track-index="18"></div>
     <div id="aurora" class="clip" data-start="0" data-duration="4" data-track-index="1"></div>
     <div id="halo" class="clip" data-start="0" data-duration="4" data-track-index="2"></div>
     <div id="moon-glow" class="clip" data-start="0" data-duration="4" data-track-index="3"></div>
@@ -69,6 +89,8 @@
     <script>
       // Deterministic, finite, seekable 4-second motion — looped at GIF export time.
       const tl = gsap.timeline({ paused: true, defaults: {ease: "sine.inOut"} });
+      tl.fromTo("#avatar",{scale:1.0,opacity:0.98},{scale:1.025,opacity:1,duration:2,repeat:1,yoyo:true},0);
+      tl.fromTo("#avatar-halo",{opacity:.10,scale:.98},{opacity:.27,scale:1.04,duration:2,repeat:1,yoyo:true},0);
       tl.fromTo("#halo", {rotation:0, opacity:0.45}, {rotation:360, opacity:.45, duration:4, ease:"none"},0);
       tl.fromTo("#moon-glow", {opacity:.16, scale:.98}, {opacity:.50, scale:1.045, duration:2, repeat:1, yoyo:true}, 0);
       tl.fromTo("#aurora", {x:-30, y:8, opacity:.40, scale:.94}, {x:30, y:-8, opacity:.69, scale:1.08, duration:2, repeat:1, yoyo:true},0);

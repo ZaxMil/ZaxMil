@@ -64,7 +64,7 @@
 
 <img src="./assets/footer.svg" alt="Keep building. Keep shipping." width="100%" />
 
-<!-- Animated hero: HyperFrames composition at motion/hero/index.html; original non-animated fallback assets/hero.svg. -->
+<!-- Animated hero: HyperFrames composition at motion/hero/index.html; non-animated fallback assets/hero-poster.png. -->
 
 <!-- Maintenance:
 Run GITHUB_TOKEN="$(gh auth token)" python3 scripts/update_profile.py to refresh local data.

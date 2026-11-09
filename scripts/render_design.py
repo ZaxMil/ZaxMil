@@ -40,11 +40,12 @@ def outer(w, h, r=24):
     return (f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="{r}" fill="url(#bg)" stroke="#4173ae" stroke-opacity=".66" stroke-width="2"/>'
             f'<rect x="2" y="2" width="{w-4}" height="{h-4}" rx="{r}" fill="url(#grid)" opacity=".5"/>')
 
-# HERO — cinematic skyline and hooded developer silhouette
+# HERO — cinematic skyline; raster avatar is layered separately
 random.seed(710)
 hero = outer(1200, 407, 26)
 hero += '<clipPath id="crop"><rect width="1200" height="407" rx="26"/></clipPath><g clip-path="url(#crop)">'
-hero += '<rect x="570" y="0" width="630" height="407" fill="url(#sky)" opacity=".83"/>'
+hero += '<defs><linearGradient id="rightFade" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#000"/><stop offset=".23" stop-color="#fff"/></linearGradient><mask id="mixMask"><rect x="525" y="0" width="675" height="407" fill="url(#rightFade)"/></mask></defs>'
+hero += '<rect x="525" y="0" width="675" height="407" fill="url(#sky)" opacity=".83" mask="url(#mixMask)"/>'
 hero += '<circle cx="1002" cy="151" r="230" fill="url(#haze)" opacity=".6"/>'
 hero += '<circle cx="999" cy="155" r="117" fill="#28ccfd" opacity=".38" filter="url(#soft)"/>'
 hero += '<circle cx="999" cy="155" r="108" fill="url(#moon)" opacity=".92"/>'
@@ -62,17 +63,8 @@ for x,w,h in [(620,27,85),(656,43,125),(717,34,90),(766,50,131),(821,30,101),(87
     hero += f'<path d="M{x} 407V{407-h}l{w//3} -13h{w//3}l{w//3} 13V407Z" fill="#071426" opacity=".95"/>'
     for yy in range(407-h+23,390,28):
         hero += f'<path d="M{x+8} {yy}h{max(5,w-16)}" stroke="#25d9f2" stroke-width="2" opacity=".3"/>'
-# futuristic caped coder, purposeful silhouette, no fake photo
-hero += '<ellipse cx="998" cy="404" rx="177" ry="25" fill="#00eaff" opacity=".24" filter="url(#soft)"/>'
-hero += '<path d="M935 270 C904 300 873 345 857 407H1136C1111 341 1089 294 1051 270Z" fill="#0a1025" stroke="#6350aa" stroke-width="3"/>'
-hero += '<path d="M941 269 C917 228 926 180 953 163Q1000 128 1039 165C1071 203 1072 241 1051 271L1029 294H963Z" fill="#0b142d" stroke="#3a73a3" stroke-width="3"/>'
-hero += '<path d="M960 199Q1000 171 1034 203L1030 255Q997 283 965 251Z" fill="#101a38"/>'
-hero += '<path d="M956 221L995 211L1036 221L1017 249H981Z" fill="#06101d" stroke="#22c7fa" stroke-width="2"/>'
-hero += '<path d="M976 232h48" stroke="#42f4ff" stroke-width="3" opacity=".8"/>'
-hero += '<path d="M945 289L982 330 1016 330 1054 287" stroke="#4b88c3" stroke-width="4" fill="none"/>'
-hero += '<path d="M987 351l12 12 12-12M989 362h20" stroke="#1ce7f1" stroke-width="5" fill="none" stroke-linejoin="round"/>'
-hero += '<path d="M947 290L895 399M1055 289L1109 399" stroke="#305580" stroke-width="3"/>'
-hero += '<path d="M563 0V407" stroke="#23f0ef" stroke-opacity=".13" stroke-width="2"/>'
+# The current developer avatar is composited as an external, real raster asset.
+# Removed obsolete hard divider for seamless left-to-right design
 hero += '</g>'
 # top chrome, deliberately prominent branded layout
 hero += '<rect x="32" y="29" width="310" height="34" rx="17" fill="#0a1d35" stroke="#276a9a"/>'

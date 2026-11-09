@@ -4,7 +4,8 @@ This is the editable, **original** motion composition used to generate the anima
 
 - Engine: [HyperFrames](https://github.com/heygen-com/hyperframes), seekable HTML-to-video renderer.
 - Composition: [index.html](index.html)
-- Static source artwork: [assets/hero.svg](assets/hero.svg)
+- Static skyline source artwork: [assets/hero.svg](assets/hero.svg)
+- Approved developer avatar: [assets/zax-avatar.webp](assets/zax-avatar.webp)
 - Local animation script: [vendor/gsap.min.js](vendor/gsap.min.js), GSAP © GreenSock (see https://gsap.com/community/standard-license/).
 - Output: [renders/zaxmil-hero.mp4](renders/zaxmil-hero.mp4).
 - Embed: [../../assets/hero-motion.gif](../../assets/hero-motion.gif).
@@ -27,4 +28,4 @@ ffmpeg -y -i renders/zaxmil-hero.mp4 \
 
 The animation uses a finite, paused GSAP timeline with a four-second loop. No outbound API calls, telemetry from the composition, or paid video models are required.
 
-If motion is uncomfortable, the static alternative remains at [../../assets/hero.svg](../../assets/hero.svg).
+If motion is uncomfortable, the full static alternative is at [../../assets/hero-poster.png](../../assets/hero-poster.png).
